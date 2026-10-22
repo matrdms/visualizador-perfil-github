@@ -21,7 +21,7 @@ export function renderProfile(container, userData, userRepos) {
                 </div>
             </a>`)
         .join("")
-        : "<p>Nenhum repositório encontrado</p>";
+        : '<p class="repositories-empty">Nenhum repositório encontrado</p>';
 
     container.innerHTML = `
         <div class="profile-card">

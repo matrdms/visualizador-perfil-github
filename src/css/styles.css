@@ -225,6 +225,11 @@ main {
   text-align: left;
 }
 
+.repositories-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
 .repositories a {
   color: var(--foreground);
   text-decoration: none;
