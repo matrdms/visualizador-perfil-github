@@ -144,6 +144,10 @@ main {
   display: none;
 }
 
+.profile-results {
+  width: 100%;
+}
+
 .profile-card {
   display: flex;
   align-items: center;
@@ -202,4 +206,63 @@ main {
 .profile-counters span {
   font-size: 2rem;
   font-weight: bold;
+}
+
+.profile-repositories {
+  width: 100%;
+  margin: 2.5rem auto 0;
+}
+
+.profile-repositories h2 {
+  font-size: var(--font-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.repositories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--spacing-md);
+  text-align: left;
+}
+
+.repositories a {
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.repository-card {
+  min-width: 0;
+  padding: var(--spacing-md);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+.repository-card h3 {
+  margin-bottom: var(--spacing-sm);
+  overflow-wrap: anywhere;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  text-align: center;
+}
+
+.repository-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.repository-stats {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.repository-stats span {
+  display: block;
+  overflow: hidden;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  background: #e5e9ed;
+  color: var(--muted-foreground);
+  font-size: var(--font-xs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

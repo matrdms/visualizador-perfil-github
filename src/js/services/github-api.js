@@ -16,3 +16,13 @@ export async function fetchGitHubUser(userName) {
 
     return response.json();
 }
+
+export async function fetchGitHubUserRepos(userName) {
+    const response = await fetch(`${BASE_URL}/users/${encodeURIComponent(userName)}/repos?per_page=10&sort=created`);
+
+    if (!response.ok) {
+        throw new Error("Não foi possível buscar os repositórios do usuário.");
+    }
+
+    return response.json();
+}

@@ -1,4 +1,4 @@
-import { fetchGitHubUser, GitHubUserNotFoundError } from "./services/github-api.js";
+import { fetchGitHubUser, fetchGitHubUserRepos, GitHubUserNotFoundError } from "./services/github-api.js";
 import { clearProfile, renderLoading, renderProfile } from "./ui/profile-view.js";
 
 const NOT_FOUND_MESSAGE = "Usuário não encontrado. Por favor, verifique o nome de usuário e tente novamente.";
@@ -22,7 +22,8 @@ export function initializeSearch() {
 
         try {
             const userData = await fetchGitHubUser(userName);
-            renderProfile(profileResults, userData);
+            const userRepos = await fetchGitHubUserRepos(userName);
+            renderProfile(profileResults, userData, userRepos);
         } catch (error) {
             if (error instanceof GitHubUserNotFoundError) {
                 alert(NOT_FOUND_MESSAGE);
