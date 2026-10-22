@@ -9,7 +9,7 @@ export function initializeSearch() {
     const btnSearch = document.getElementById("btn-search");
     const profileResults = document.querySelector(".profile-results");
 
-    btnSearch.addEventListener("click", async () => {
+    const searchUser = async () => {
         const userName = inputSearch.value;
 
         if (!userName) {
@@ -33,6 +33,13 @@ export function initializeSearch() {
             }
 
             clearProfile(profileResults);
+        }
+    };
+
+    btnSearch.addEventListener("click", searchUser);
+    inputSearch.addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+            searchUser();
         }
     });
 }
